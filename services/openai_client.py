@@ -3,6 +3,7 @@ import base64
 from typing import Dict, Any, Optional
 from openai import OpenAI
 from dotenv import load_dotenv
+from .rag_service import RAGService
 
 # Load environment variables
 load_dotenv()
@@ -11,6 +12,9 @@ class OpenAIClient:
     def __init__(self):
         """Initialize OpenAI client with API key from environment variables."""
         self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        
+        # Initialize RAG service for local context
+        self.rag_service = RAGService()
         
         # Model configurations for different use cases
         self.models = {
@@ -34,7 +38,7 @@ class OpenAIClient:
     
     def diagnose_plant(self, image_path: str, additional_info: Optional[str] = None, user_label: Optional[str] = None) -> Dict[str, Any]:
         """
-        Diagnose plant health from image using OpenAI vision model.
+        Diagnose plant health from image using OpenAI vision model with RAG context.
         
         Args:
             image_path: Path to the plant image
@@ -45,11 +49,14 @@ class OpenAIClient:
             Dictionary containing plant name, status, confidence, cause, treatment, and prevention
         """
         try:
+            # Get relevant context from RAG database
+            rag_context = self.rag_service.get_context_for_diagnosis(user_label, additional_info)
+            
             # Encode image to base64
             base64_image = self.encode_image_to_base64(image_path)
             
-            # Prepare the prompt for plant diagnosis
-            prompt = self._get_diagnosis_prompt(additional_info, user_label)
+            # Prepare the prompt for plant diagnosis with RAG context
+            prompt = self._get_diagnosis_prompt(additional_info, user_label, rag_context)
             
             # Make API call to OpenAI
             response = self.client.chat.completions.create(
@@ -85,7 +92,7 @@ class OpenAIClient:
     
     def chat_with_ai(self, user_message: str, conversation_history: Optional[list] = None) -> Dict[str, Any]:
         """
-        Handle chat conversations with users about plants.
+        Handle chat conversations with users about plants using RAG context.
         
         Args:
             user_message: User's question or message
@@ -95,8 +102,11 @@ class OpenAIClient:
             Dictionary containing AI response and updated conversation history
         """
         try:
-            # Prepare messages for chat
-            messages = self._prepare_chat_messages(user_message, conversation_history)
+            # Get relevant context from RAG database
+            rag_context = self.rag_service.get_context_for_chat(user_message)
+            
+            # Prepare messages for chat with RAG context
+            messages = self._prepare_chat_messages(user_message, conversation_history, rag_context)
             
             # Make API call to OpenAI
             response = self.client.chat.completions.create(
@@ -117,7 +127,8 @@ class OpenAIClient:
                 'success': True,
                 'response': ai_response,
                 'conversation_history': updated_history,
-                'model_used': self.models['chat']['primary_model']
+                'model_used': self.models['chat']['primary_model'],
+                'rag_context_used': bool(rag_context)
             }
             
         except Exception as e:
@@ -127,37 +138,37 @@ class OpenAIClient:
                 'response': "I'm sorry, I'm having trouble responding right now. Please try again later."
             }
     
-    def _get_diagnosis_prompt(self, additional_info: Optional[str] = None, user_label: Optional[str] = None) -> str:
+    def _get_diagnosis_prompt(self, additional_info: Optional[str] = None, user_label: Optional[str] = None, rag_context: Optional[str] = None) -> str:
         """Generate the prompt for plant diagnosis."""
         base_prompt = """
-        You are a plant health expert. Analyze this plant image and provide a comprehensive diagnosis.
-        
-        IMPORTANT: You must respond with ONLY a valid JSON object in the following exact format:
-        {
-            "name": "Common name of the plant/crop (e.g., 'Tomato', 'Rose', 'Wheat', 'Unknown')",
-            "status": "healthy|unhealthy|diseased|pest_infested|nutrient_deficient|stressed",
-            "confidence": 85,
-            "problem": "Clear description of the specific problem observed (e.g., 'Yellowing leaves on lower branches', 'Brown spots on leaves', 'Wilting stems', 'No visible problems')",
-            "cause": "Brief explanation of what is causing the condition (e.g., 'Nutrient deficiency', 'Pest infestation', 'Fungal infection', 'Normal growth')",
-            "treatment": "Specific treatment steps and recommendations",
-            "prevention": "How to prevent this issue in the future"
-        }
-        
-        Guidelines:
-        1. Identify the plant/crop name if possible, otherwise use "Unknown"
-        2. Determine the actual health status based on what you observe in the image
-        3. Set confidence as a percentage (0-100) based on image clarity and your certainty
-        4. Describe the specific problem observed in detail (what you can see)
-        5. Explain the underlying cause of the problem
-        6. Provide specific, actionable treatment advice
-        7. Give practical prevention tips
-        8. Be honest about the plant's condition - don't always assume it's healthy
-        
-        Focus on:
-        - Plant identification
-        - Health assessment
-        - Specific treatment recommendations
-        - Prevention strategies
+        You are a friendly plant health expert. Look carefully at this plant image and give a clear, easy-to-understand diagnosis.
+
+IMPORTANT: Reply with ONLY a valid JSON object in this exact format:
+{
+    "name": "Common name of the plant or crop (e.g., 'Tomato', 'Rose', 'Unknown')",
+    "status": "healthy|unhealthy|diseased|pest_infested|nutrient_deficient|stressed",
+    "confidence": 85,
+    "problem": "Describe what you actually see happening (e.g., 'Leaves turning yellow at the bottom', 'Brown spots spreading on leaves', 'Wilting stems', 'Looks healthy overall')",
+    "cause": "Explain in simple terms what’s causing it (e.g., 'Fungal infection', 'Insect damage', 'Lack of nutrients', 'Too much water', 'Normal growth')",
+    "treatment": "Give easy-to-follow steps to help the plant recover (e.g., 'Remove affected leaves and spray with a mild fungicide')",
+    "prevention": "Practical tips to stop it from happening again (e.g., 'Water early in the morning and avoid wetting leaves')"
+}
+
+Guidelines:
+1. Identify the plant or crop name if possible; use "Unknown" if unsure.
+2. Judge how the plant looks — healthy, unhealthy, or showing disease, pest, or nutrient problems.
+3. Set confidence as a percentage (0–100) based on how sure you are.
+4. Describe the visible issue in plain language.
+5. Keep explanations short, clear, and easy to understand.
+6. Give practical treatment steps anyone can follow at home.
+7. Suggest simple prevention tips to keep the plant healthy.
+8. Don’t assume every plant is healthy — be honest about what you see.
+
+Focus on:
+- Simple, friendly language anyone can understand.
+- Useful, realistic advice for home gardeners.
+- Clear separation between what’s happening, why, and what to do.
+
         """
         
         if user_label:
@@ -165,6 +176,9 @@ class OpenAIClient:
         
         if additional_info:
             base_prompt += f"\n\nAdditional context provided by user: {additional_info}"
+        
+        if rag_context:
+            base_prompt += f"\n\n{rag_context}"
         
         base_prompt += "\n\nRespond with ONLY the JSON object, no additional text."
         
@@ -294,12 +308,9 @@ class OpenAIClient:
                 'error': f"Fallback diagnosis failed: {str(e)}"
             }
     
-    def _prepare_chat_messages(self, user_message: str, conversation_history: Optional[list] = None) -> list:
+    def _prepare_chat_messages(self, user_message: str, conversation_history: Optional[list] = None, rag_context: Optional[str] = None) -> list:
         """Prepare messages for chat API call."""
-        messages = [
-            {
-                "role": "system",
-                "content": """You are a helpful plant care assistant. You can answer questions about:
+        system_content = """You are a helpful plant care assistant. You can answer questions about:
                 - Plant identification
                 - Plant care and maintenance
                 - Common plant problems and solutions
@@ -308,6 +319,15 @@ class OpenAIClient:
                 
                 Be friendly, informative, and practical in your responses. If you're unsure about something, 
                 recommend consulting with a local plant expert or nursery."""
+        
+        # Add RAG context if available
+        if rag_context:
+            system_content += f"\n\n{rag_context}"
+        
+        messages = [
+            {
+                "role": "system",
+                "content": system_content
             }
         ]
         
