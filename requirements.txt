@@ -1,0 +1,14 @@
+# --- Core Framework ---
+flask
+flask-cors
+
+
+# --- OpenAI and AI ---
+openai>=1.0.0
+python-dotenv
+
+# --- Image Processing ---
+Pillow>=9.0.0
+requests
+# --- File Upload ---
+werkzeug

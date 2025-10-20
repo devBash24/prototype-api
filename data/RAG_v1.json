@@ -1,0 +1,426 @@
+[
+  {
+    "id": "carrot_001",
+    "name": "Carrot",
+    "description": "Carrots are root vegetables from the Umbelliferae family, related to parsley and celery. They grow best in well-drained, light sandy or loamy soils with pH 6-6.5. Carrots mature in 12-16 weeks and can be grown year-round, with better quality in the dry season using irrigation.",
+    "how_to_plant": [
+      "Prepare land by ploughing 12 inches deep and creating flat topped beds 4 ft wide.",
+      "Use stale bed preparation 2-3 weeks before planting with Round Up or 2-4 D for weed control.",
+      "Direct seed carrots 1/4 inch deep, thin to 3 inches apart within rows and 9 inches between rows.",
+      "Plant about 3 lbs of seed per acre.",
+      "Avoid planting during heavy rainfall to prevent seed loss.",
+      "Apply NPK fertilizer (16-8-24 or 13-7-23) at 2 sacks/acre during land prep.",
+      "Add Triple Super Phosphate (TSP) at 1 sack/acre if available, placed near roots.",
+      "Fertilize again at 2, 5, and 7 weeks after germination for light soils; 4 and 7 weeks for heavy soils.",
+      "Use limestone if soil acidity is a problem.",
+      "Control weeds with Pendimethalin pre-emergence and Fusilade post-emergence."
+    ],
+    "common_diseases": [
+      "Alternaria Leaf Blight (Alternaria dauci)",
+      "Cercospora Leaf Blight (Cercospora carotae)",
+      "Southern Blight (Sclerotium rolfgii)",
+      "Carrot Soft Rot (Erwinia carotovora)"
+    ],
+    "causes": [
+      "Wet season conditions favor leaf spot diseases.",
+      "Poor field sanitation and crop residue increase Southern Blight and Soft Rot.",
+      "Heavy rainfall during planting causes seed and seedling loss.",
+      "Acidic soils reduce yield and cause root distortion.",
+      "Heavy clumpy soils distort roots."
+    ],
+    "treatments": [
+      "Use Mancozeb, Chlorothalonil, or Benomyl for leaf blights.",
+      "Practice crop rotation and deep ploughing to control Southern Blight and Soft Rot.",
+      "Use thiram treated seed and wider spacing during wet season.",
+      "Apply Diazinon or Primiphos-ethyl for sucking pests like aphids and leafhoppers.",
+      "Use synthetic pyrethroids (Ambush, Sherpa, Decis) for cutworms.",
+      "Spray Diazinon soon after sowing to control ants.",
+      "Apply Pendimethalin pre-emergence and Fusilade post-emergence for weed control."
+    ],
+    "benefits": [
+      "Carrots provide nutritional value as a root vegetable.",
+      "They have economic value for both domestic consumption and export markets."
+    ]
+  },
+  {
+    "id": "lettuce_saint_vincent_001",
+    "name": "Lettuce",
+    "description": "Lettuce is a delicate leafy vegetable grown mainly in two types: head lettuce and leaf lettuce. Head lettuce grows best in cool temperatures and has a longer shelf life, while leaf lettuce grows at all elevations. It takes about 40 days from transplanting to harvest.",
+    "how_to_plant": [
+      "Prepare seedling box with soil mixed with well-rotted pen manure.",
+      "Treat seeds with Sevin to prevent damage from ants and soil insects.",
+      "Sow seeds ½ inch deep at weekly intervals for continuous supply.",
+      "Place seedling box in a sheltered area to protect from heavy rain.",
+      "Thin out seedlings if sown too thickly.",
+      "Clear land one week before planting, removing weeds and debris.",
+      "Till soil with hoe or fork to improve air and water movement.",
+      "Prepare cambered beds (e.g., 5 ft x 9 ft) for good drainage.",
+      "Add well-rotted pen manure to beds and work into soil.",
+      "Smooth bed surface, removing stones and clumps.",
+      "Transplant seedlings 2-3 weeks after germination, one seedling per hole.",
+      "Space plants 8-12 inches within and between rows.",
+      "Water daily or as necessary.",
+      "Fertilize 7 days after transplanting with Sulphate of Ammonia (¼ small matchbox per plant) in a narrow band around the plant.",
+      "Mold up soil weekly around plants to keep soil loose for water entry."
+    ],
+    "common_diseases": [
+      "Damping-off at seedling stage"
+    ],
+    "causes": [
+      "Damping-off caused by soil conditions at seedling stage"
+    ],
+    "treatments": [
+      "Treat soil to prevent damping-off",
+      "Treat seeds with Sevin pesticide to prevent insect damage"
+    ],
+    "benefits": [
+      "Fast-growing leafy vegetable",
+      "Head lettuce has a long shelf life",
+      "Grows well in cool temperatures and various elevations"
+    ]
+  },
+  {
+    "id": "cabbage_001",
+    "name": "Cabbage",
+    "description": "Cabbage (Brassica oleracea) ranges in color from green to purple and varies from smooth to savoy leaves. It matures in 62 to 110 days depending on weather and variety. It is a leafy vegetable that prefers moist topsoil and nitrogen-rich fertilizer.",
+    "how_to_plant": [
+      "Prepare seedling boxes with soil fertilized with pen manure.",
+      "Treat seeds with Sevin to prevent insect damage.",
+      "Plant seeds ½ inch deep, one seed per hole, and water as needed.",
+      "Seeds germinate in about two weeks and are ready for transplanting after four weeks with 4-5 true leaves.",
+      "Remove seedlings with soil around roots and plant 12-18 inches apart, firming soil around each seedling.",
+      "Apply a quarter matchbox of compound fertilizer 4-5 inches from the stem at planting.",
+      "Apply a quarter matchbox of Sulphate of Ammonia 5-6 weeks after planting and again 3-4 weeks later, covering fertilizer with soil."
+    ],
+    "common_diseases": [
+      "Black Rot",
+      "Bacterial Soft Rot"
+    ],
+    "causes": [
+      "Seed-borne diseases",
+      "Insect damage",
+      "Dry and hot weather conditions"
+    ],
+    "treatments": [
+      "Use Captan for Black Rot",
+      "Hot water treatment of seeds by Ministry of Agriculture for Bacterial Soft Rot",
+      "Use Sevin on seeds to prevent insect damage",
+      "Use Dipel, Decis, Ekalux-Forte for pests like Budworms, Diamondback Moth, and White Flies"
+    ],
+    "benefits": [
+      "Nutritional leafy vegetable",
+      "Economic value as a delicate produce"
+    ]
+  },
+  {
+    "id": "cucumber_001",
+    "name": "Cucumbers",
+    "description": "Cucumbers are warm-season vegetables grown for their immature green fruits, eaten raw in salads. They vary in length from 10 to 76 cm and turn yellow and inedible if overripe.",
+    "how_to_plant": [
+      "Plough fertile soil with compost, avoiding compost from cucumbers, pumpkins, and melons.",
+      "Spray soil with insecticide like Basudin before planting.",
+      "Construct ridges 3-4 ft apart.",
+      "Make holes 1 ft apart within rows.",
+      "Place 2-3 seeds per hole, 1 inch deep, cover with soil and water.",
+      "Thin to 1 plant per hole; if 2 plants remain, space them 2 ft apart.",
+      "Apply NPK fertilizer 2½ inches from plant and 1½ inches deep, then cover."
+    ],
+    "common_diseases": [
+      "Anthracnose",
+      "Mildew",
+      "Mosaic Virus",
+      "Scab"
+    ],
+    "causes": [
+      "Cold conditions (cucumbers are sensitive to cold)",
+      "Use of compost containing remains of cucumbers, pumpkins, or melons",
+      "Insect pests such as aphids and cucumber beetle"
+    ],
+    "treatments": [
+      "Spray soil with Basudin before planting to control ants and mole cricket",
+      "Use Decis or Orthene for aphids (2-3 tsp per 3 gallons or 3 tsp per gallon)",
+      "Use Basudin for beetles (3 tsp per gallon)",
+      "Use Benlate or Dithane for Anthracnose (½ oz or 1 oz per gallon)"
+    ],
+    "benefits": [
+      "Eaten raw in salads",
+      "Provides fresh vegetable produce"
+    ]
+  },
+  {
+    "id": "passion_fruit_001",
+    "name": "Passion Fruit",
+    "description": "Passion fruit (Passiflora edulis) is a vine native to Brazil, now commercially important in the Caribbean. Its pulp is used in juices, desserts, and cocktails. There are purple and yellow types, with the yellow producing larger fruit and more juice but the purple having better flavor.",
+    "how_to_plant": [
+      "Choose suitable variety: purple for subtropics/highland tropics, yellow for low altitude tropics.",
+      "Prepare land with good drainage and irrigation.",
+      "Use mechanized or manual planting depending on field size and terrain.",
+      "Control weeds and pests using hand sprayers or mechanized equipment.",
+      "Consider hybrids for disease resistance and better yield."
+    ],
+    "common_diseases": [],
+    "causes": [],
+    "treatments": [],
+    "benefits": [
+      "Used in fruit juices, salads, ice creams, cakes, jams, and cocktails.",
+      "High international demand for juice concentrate.",
+      "Economic potential as an export crop in the Caribbean."
+    ]
+  },
+  {
+    "id": "sweet_peppers_001",
+    "name": "Sweet Peppers",
+    "description": "Sweet Peppers are hot weather vegetables grown year-round with minimal pest and disease problems. They mature in 4½ to 5 months and are best propagated from seedlings.",
+    "how_to_plant": [
+      "Prepare seedlings in seed boxes or beds with well-rotted pen manure.",
+      "Dust untreated seeds with Sevin to prevent pest damage.",
+      "Sow seeds ¼ inch deep, water regularly but avoid drowning.",
+      "Thin seedlings at 3-leaf stage to 3-4 inches apart.",
+      "Transplant seedlings after 4-5 weeks in early morning or late afternoon.",
+      "Plant on ridges 3ft apart in wet season, furrows in dry season.",
+      "Use fertilizer: 1oz NPK per plant before planting, then additional doses at 1, 3, 7, and 9 weeks.",
+      "Keep fields weed-free using manual or chemical control; mulch in dry season."
+    ],
+    "common_diseases": [
+      "Viruses causing twisting and stunted growth",
+      "Bacterial wilt",
+      "Bacterial leafspot"
+    ],
+    "causes": [
+      "Poor soil drainage",
+      "Wet season conditions",
+      "Weed buildup and poor sanitation",
+      "Insect pests like thrips, aphids, whitefly, leafhoppers, cutworms, mole cricket",
+      "Mites in unsanitary fields"
+    ],
+    "treatments": [
+      "Remove and destroy infected plants away from plot",
+      "Dust seeds with Sevin to prevent soil pest damage",
+      "Drench soil with 1 tsp Banrot per gallon water to prevent damping off",
+      "Use foliar fertilizers like Miracle Gro or Calmax every 3 weeks",
+      "Maintain good soil drainage and weed control"
+    ],
+    "benefits": [
+      "Can be grown year-round with minimal pest issues",
+      "Provides fresh vegetables for local consumption",
+      "Economic value from early and high yields when properly managed"
+    ]
+  },
+  {
+    "id": "tomato_001",
+    "name": "Tomato",
+    "description": "Tomatoes can be grown year-round with some varieties better suited for rainy seasons. They mature in about 3 months from transplant and are susceptible to wilting diseases. Planting on ridges helps reduce wilting.",
+    "how_to_plant": [
+      "Prepare seedlings in Styrofoam cups or seedling beds.",
+      "Dust seeds with Sevin to prevent insect damage.",
+      "Mix well-rotted pen-manure into soil.",
+      "Sow seeds 1/2 inch deep with 4 inch spacing between rows.",
+      "Thin seedlings to one per cup after germination.",
+      "Transplant seedlings 3-4 weeks old, about 20 cm tall.",
+      "Dig holes 3 ft between rows and 1.5 ft within rows.",
+      "Apply one handful of treated pen-manure to each hole.",
+      "Place seedlings at same soil level as in seedling bed.",
+      "Firm soil around roots and water plants.",
+      "Stake plants 2-3 weeks after transplanting using twine.",
+      "Apply NPK fertilizer in three stages: 1-2 weeks after planting (1 oz), two weeks later (2 oz), and at flowering (2 oz).",
+      "Plant in beds 4 ft wide with 8-10 inch drains; use ridges on steep land.",
+      "Treat soil with fungicide (Banrot or Bravo) before planting."
+    ],
+    "common_diseases": [
+      "Fusarium Wilt",
+      "Bacterial Wilt",
+      "Tobacco Mosaic Virus"
+    ],
+    "causes": [
+      "Soil-borne fungi causing wilting",
+      "Bacterial infection causing rapid wilting",
+      "Virus spread possibly by smoking in fields"
+    ],
+    "treatments": [
+      "Treat soil before planting with fungicides like Banrot or Bravo for Fusarium Wilt.",
+      "Remove affected plants for Bacterial Wilt; no chemical cure.",
+      "Use tolerant varieties such as Captain for Bacterial Wilt.",
+      "Avoid smoking in tomato fields to prevent Tobacco Mosaic Virus."
+    ],
+    "benefits": [
+      "High yielding varieties provide year-round production.",
+      "Nutritional value as a tasty red fruit.",
+      "Economic value from varieties with long shelf life and heat tolerance."
+    ]
+  },
+  {
+    "id": "hot_pepper_svg_001",
+    "name": "Hot Pepper",
+    "description": "Hot Pepper is a widely cultivated crop in St. Vincent and the Grenadines, valued for its spicy fruit used in cooking and seasoning. It thrives under local climatic conditions and is supported by research from CARDI and the Ministry of Agriculture.",
+    "how_to_plant": [
+      "Select well-drained soil with good fertility.",
+      "Start seeds in nursery beds or containers.",
+      "Transplant seedlings when they have 4-6 true leaves.",
+      "Space plants adequately to allow air circulation.",
+      "Water regularly but avoid waterlogging.",
+      "Apply balanced fertilizers to promote growth."
+    ],
+    "common_diseases": [
+      "Alternaria",
+      "Anthracnose",
+      "Cercospora",
+      "Downy Mildew",
+      "Powdery Mildew",
+      "Damping off"
+    ],
+    "causes": [
+      "High humidity and wet conditions",
+      "Poor air circulation",
+      "Overwatering",
+      "Infected seeds or soil",
+      "Lack of crop rotation"
+    ],
+    "treatments": [
+      "Kocide 101",
+      "Manzate 200Df",
+      "Benlate",
+      "Bravo (Daconil 2787)",
+      "Bordeaux Mixture",
+      "Captan",
+      "Chipco 26018",
+      "Trimiltox Forte",
+      "Aliette",
+      "Subdue 2E",
+      "Banrot",
+      "Cupravit",
+      "Dithane M45",
+      "Peltar",
+      "Ridomil",
+      "Mertect",
+      "Calixin",
+      "Folicur",
+      "Phyton",
+      "Rizolex"
+    ],
+    "benefits": [
+      "Provides spicy flavor to foods",
+      "Rich in vitamins A and C",
+      "Contains capsaicin with health benefits",
+      "Economic value as a cash crop",
+      "Supports local agriculture and markets"
+    ]
+  },
+  {
+    "id": "banana_001",
+    "name": "Banana",
+    "description": "Banana is a tropical fruit crop affected by Moko disease, a deadly bacterial wilt caused by Ralstonia solanacearum. It causes severe yield losses and affects all parts of the plant.",
+    "how_to_plant": [
+      "Sleeve the bunch and deflower early.",
+      "Break off the 'bull' as soon as the last hand is seen without using a cutlass.",
+      "Use twine instead of sticks to prop plants.",
+      "Disinfect all tools with 1 part bleach to 9 parts water.",
+      "Disinfect shoes after visiting infested fields.",
+      "Do not use materials from infected fields for replanting; wait at least one year.",
+      "Plant other crops like sweet potato, yam, corn, and carrot in infected fields during the waiting period."
+    ],
+    "common_diseases": [
+      "Moko disease"
+    ],
+    "causes": [
+      "Bacterial infection by Ralstonia (Pseudomonas) solanacearum.",
+      "Movement of infected plant parts within and between fields.",
+      "Pruning and improper disposal of infected materials.",
+      "Insect transmission of infected ooze between flowers.",
+      "Infested soil carried on hands, tools, shoes, machinery, animals, and runoff water."
+    ],
+    "treatments": [
+      "No cure available; control by destroying infected plants and host plants.",
+      "Protect uninfected areas to prevent spread.",
+      "Disinfect tools and footwear regularly.",
+      "Report infections immediately to Ministry of Agriculture or Banana Growers Association."
+    ],
+    "benefits": [
+      "Provides nutritional value as a staple fruit.",
+      "Economic importance for local farmers and markets."
+    ]
+  },
+  {
+    "id": "plantain_001",
+    "name": "Plantain",
+    "description": "Plantain is a staple starchy fruit crop related to banana, susceptible to Moko disease which causes bacterial wilt and significant yield loss.",
+    "how_to_plant": [
+      "Follow similar planting and management practices as for banana.",
+      "Avoid using materials from infected fields for replanting.",
+      "Disinfect tools and footwear after fieldwork.",
+      "Use twine to prop plants instead of sticks."
+    ],
+    "common_diseases": [
+      "Moko disease"
+    ],
+    "causes": [
+      "Infection by Ralstonia solanacearum bacterium.",
+      "Spread through infected plant parts, soil, tools, and insects."
+    ],
+    "treatments": [
+      "Destroy infected plants and any host plants nearby.",
+      "Prevent spread by disinfecting tools and shoes.",
+      "Report infections to agricultural authorities."
+    ],
+    "benefits": [
+      "Important source of carbohydrates and calories.",
+      "Economic crop for local consumption and trade."
+    ]
+  },
+  {
+    "id": "bluggoe_001",
+    "name": "Bluggoe",
+    "description": "Bluggoe (Maugh faugh baugh) is a type of cooking banana affected by Moko disease, which causes bacterial wilt and can lead to severe crop losses.",
+    "how_to_plant": [
+      "Use clean planting materials from non-infected fields.",
+      "Disinfect tools and footwear after working in fields.",
+      "Avoid using cutlasses to break off plant parts; use hands or other methods.",
+      "Prop plants with twine instead of sticks."
+    ],
+    "common_diseases": [
+      "Moko disease"
+    ],
+    "causes": [
+      "Bacterial infection by Ralstonia solanacearum.",
+      "Spread via infected plant parts, soil, tools, and insects."
+    ],
+    "treatments": [
+      "No cure; destroy infected plants and host species.",
+      "Disinfect tools and shoes regularly.",
+      "Report infections to Ministry of Agriculture or Banana Growers Association."
+    ],
+    "benefits": [
+      "Provides a starchy food source.",
+      "Valuable for local diets and agriculture."
+    ]
+  },
+  {
+    "id": "crop_seed_planting_001",
+    "name": "General Seed Planting",
+    "description": "Guidelines for planting seeds in seed boxes or seedbeds to protect seedlings from pests and environmental damage.",
+    "how_to_plant": [
+      "Smaller seeds need shallower planting; larger seeds need deeper planting.",
+      "Spray seed boxes and seedbeds with soil-acting pesticides to control cutworms, mole crickets, and other soil pests.",
+      "Cover seed boxes or beds to keep soil damp but not wet.",
+      "Water with very fine sprays to maintain moisture.",
+      "Remove covers when seedlings begin to germinate to allow full sunlight, shading during hottest hours.",
+      "Use seed trays or boxes to protect seedlings from pests and harsh field conditions.",
+      "Seed boxes should have drainage holes and be filled with a mixture of 2 parts soil, 2 parts well-rotted manure or compost, and 1 part sand.",
+      "Fill seed boxes to 1/4 inch from the top, tap to settle soil, and water lightly before sowing.",
+      "Mix tiny seeds with sand for even distribution; sow medium seeds in rows with proper spacing."
+    ],
+    "common_diseases": [],
+    "causes": [
+      "Pests such as ants, rodents, cutworms, mole crickets.",
+      "Heavy rain washing out seeds.",
+      "Exposure to hot sun or heavy rain after planting.",
+      "Soil conditions with natural enemies."
+    ],
+    "treatments": [
+      "Spray seed boxes and seedbeds with soil-acting pesticides.",
+      "Use covers to protect seeds from sun and rain.",
+      "Use seed trays or boxes to protect seedlings.",
+      "Ensure good drainage in seed boxes."
+    ],
+    "benefits": []
+  }
+]

@@ -1,0 +1,17 @@
+*.env
+.cursor
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pyzw
+*.pyz
+*.pywz
+*.pyzw
+.venv
+crop
+test.py
+diagnose.py
