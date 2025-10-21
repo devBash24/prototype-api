@@ -93,7 +93,6 @@ def send_message():
                 'message': 'Message sent successfully',
                 'conversation_id': conversation_id,
                 'response': chat_result['response'],
-                'rag_context_used': chat_result.get('rag_context_used', False),
                 'model_used': chat_result['model_used'],
                 'timestamp': datetime.now().isoformat()
             }), 200

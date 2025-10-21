@@ -3,7 +3,6 @@ import base64
 from typing import Dict, Any, Optional
 from openai import OpenAI
 from dotenv import load_dotenv
-from .rag_service import RAGService
 
 # Load environment variables
 load_dotenv()
@@ -12,9 +11,6 @@ class OpenAIClient:
     def __init__(self):
         """Initialize OpenAI client with API key from environment variables."""
         self.client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
-        
-        # Initialize RAG service for local context
-        self.rag_service = RAGService()
         
         # Model configurations for different use cases
         self.models = {
@@ -38,7 +34,7 @@ class OpenAIClient:
     
     def diagnose_plant(self, image_path: str, additional_info: Optional[str] = None, user_label: Optional[str] = None) -> Dict[str, Any]:
         """
-        Diagnose plant health from image using OpenAI vision model with RAG context.
+        Diagnose plant health from image using OpenAI vision model.
         
         Args:
             image_path: Path to the plant image
@@ -49,14 +45,11 @@ class OpenAIClient:
             Dictionary containing plant name, status, confidence, cause, treatment, and prevention
         """
         try:
-            # Get relevant context from RAG database
-            rag_context = self.rag_service.get_context_for_diagnosis(user_label, additional_info)
-            
             # Encode image to base64
             base64_image = self.encode_image_to_base64(image_path)
             
-            # Prepare the prompt for plant diagnosis with RAG context
-            prompt = self._get_diagnosis_prompt(additional_info, user_label, rag_context)
+            # Prepare the prompt for plant diagnosis
+            prompt = self._get_diagnosis_prompt(additional_info, user_label)
             
             # Make API call to OpenAI
             response = self.client.chat.completions.create(
@@ -92,7 +85,7 @@ class OpenAIClient:
     
     def chat_with_ai(self, user_message: str, conversation_history: Optional[list] = None) -> Dict[str, Any]:
         """
-        Handle chat conversations with users about plants using RAG context.
+        Handle chat conversations with users about plants.
         
         Args:
             user_message: User's question or message
@@ -102,11 +95,8 @@ class OpenAIClient:
             Dictionary containing AI response and updated conversation history
         """
         try:
-            # Get relevant context from RAG database
-            rag_context = self.rag_service.get_context_for_chat(user_message)
-            
-            # Prepare messages for chat with RAG context
-            messages = self._prepare_chat_messages(user_message, conversation_history, rag_context)
+            # Prepare messages for chat
+            messages = self._prepare_chat_messages(user_message, conversation_history)
             
             # Make API call to OpenAI
             response = self.client.chat.completions.create(
@@ -127,8 +117,7 @@ class OpenAIClient:
                 'success': True,
                 'response': ai_response,
                 'conversation_history': updated_history,
-                'model_used': self.models['chat']['primary_model'],
-                'rag_context_used': bool(rag_context)
+                'model_used': self.models['chat']['primary_model']
             }
             
         except Exception as e:
@@ -138,7 +127,7 @@ class OpenAIClient:
                 'response': "I'm sorry, I'm having trouble responding right now. Please try again later."
             }
     
-    def _get_diagnosis_prompt(self, additional_info: Optional[str] = None, user_label: Optional[str] = None, rag_context: Optional[str] = None) -> str:
+    def _get_diagnosis_prompt(self, additional_info: Optional[str] = None, user_label: Optional[str] = None) -> str:
         """Generate the prompt for plant diagnosis."""
         base_prompt = """
         You are a friendly plant health expert. Look carefully at this plant image and give a clear, easy-to-understand diagnosis.
@@ -176,9 +165,6 @@ Focus on:
         
         if additional_info:
             base_prompt += f"\n\nAdditional context provided by user: {additional_info}"
-        
-        if rag_context:
-            base_prompt += f"\n\n{rag_context}"
         
         base_prompt += "\n\nRespond with ONLY the JSON object, no additional text."
         
@@ -308,9 +294,12 @@ Focus on:
                 'error': f"Fallback diagnosis failed: {str(e)}"
             }
     
-    def _prepare_chat_messages(self, user_message: str, conversation_history: Optional[list] = None, rag_context: Optional[str] = None) -> list:
+    def _prepare_chat_messages(self, user_message: str, conversation_history: Optional[list] = None) -> list:
         """Prepare messages for chat API call."""
-        system_content = """You are a helpful plant care assistant. You can answer questions about:
+        messages = [
+            {
+                "role": "system",
+                "content": """You are a helpful plant care assistant. You can answer questions about:
                 - Plant identification
                 - Plant care and maintenance
                 - Common plant problems and solutions
@@ -319,15 +308,6 @@ Focus on:
                 
                 Be friendly, informative, and practical in your responses. If you're unsure about something, 
                 recommend consulting with a local plant expert or nursery."""
-        
-        # Add RAG context if available
-        if rag_context:
-            system_content += f"\n\n{rag_context}"
-        
-        messages = [
-            {
-                "role": "system",
-                "content": system_content
             }
         ]
         
